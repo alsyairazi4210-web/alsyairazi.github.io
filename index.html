@@ -309,7 +309,7 @@
                 </div>
                 <div class="col-md-6 col-lg-4 reveal">
                     <article class="project-card">
-                        <div class="project-thumb">
+                        <div class="project-thumb certificate-thumb">
                             <img src="img/certifikate.jpeg" alt="Sertifikat Shokyu I">
                         </div>
                         <div class="project-body">
@@ -986,7 +986,7 @@
 
             let previous = performance.now();
             function animate(now) {
-                const dt = Math.min(2, (now - previous) / 16.67 || 1);
+                const dt = Math.min(2, Math.max(0, (now - previous) / 16.67)) || 1;
                 previous = now;
                 if (!state.dragging) {
                     if (state.dropping && !reducedMotion) {

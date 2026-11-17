@@ -419,12 +419,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @keyframes charBlink {
-    0% { opacity: 1; }
-    20% { opacity: 0; }
-    40% { opacity: 1; }
-    55% { opacity: 0; }
-    70% { opacity: 1; }
-    100% { opacity: 1; }
+    0%, 14% { opacity: 1; }
+    20% { opacity: 0.55; }
+    26%, 54% { opacity: 1; }
+    60% { opacity: 0.55; }
+    66%, 100% { opacity: 1; }
 }
 
 .hero-subtitle {
@@ -548,9 +547,9 @@ h1, h2, h3, h4, h5, h6,
 
 .lanyard-stage {
     position: relative;
-    z-index: 1100;
+    z-index: 1025;
     width: 100%;
-    min-height: 440px;
+    min-height: 560px;
     touch-action: pan-y;
     user-select: none;
     -webkit-user-select: none;
@@ -713,7 +712,10 @@ h1, h2, h3, h4, h5, h6,
 
 .lanyard-hint {
     display: block;
-    margin-top: 13px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     color: rgba(168, 245, 194, 0.58);
     font-size: 0.58rem;
     font-weight: 700;
@@ -1495,6 +1497,10 @@ h1, h2, h3, h4, h5, h6,
         margin-top: 2rem;
     }
 
+    .lanyard-hint {
+        display: none;
+    }
+
     .scroll-hint {
         display: none;
     }
@@ -1741,10 +1747,16 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .project-thumb.certificate-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 0.35rem;
+    position: absolute;
+    inset: 0.35rem;
+    width: calc(100% - 0.7rem);
+    height: calc(100% - 0.7rem);
+    object-fit: cover;
+    object-position: center 32%;
+}
+
+.project-card:hover .project-thumb.certificate-thumb img {
+    transform: none;
 }
 
 .project-thumb.certificate-thumb::after {
@@ -1955,8 +1967,12 @@ html[data-theme="light"] footer {
     /* Keep all introduction content after the ID card on mobile. */
     .hero .row > .col-lg-7 {
         order: 2;
-        padding-top: 1.25rem;
+        padding-top: 1.9rem;
         text-align: center;
+    }
+
+    .lanyard-hint {
+        display: none;
     }
 
     .hero .portrait-wrap {
