@@ -887,8 +887,10 @@
 
             function paint() {
                 const stageWidth = stage.clientWidth;
-                // Give the SVG a wide canvas so the badge can be dragged far left/right.
-                const svgWidth = Math.max(stageWidth, window.innerWidth * 2);
+                // Keep the strap canvas at most one viewport wide: wider canvases make
+                // mobile browsers shrink-to-fit the whole page.
+                const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+                const svgWidth = Math.max(stageWidth, Math.min(window.innerWidth * 2, viewportWidth));
                 const anchorX = svgWidth / 2;
                 // Extend the strap from the document's top edge, even across the navbar.
                 const stageDocumentTop = stage.getBoundingClientRect().top + window.scrollY;
