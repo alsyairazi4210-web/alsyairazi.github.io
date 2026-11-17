@@ -1,24 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>My Portfolio</title>
-
-    <!-- Bootstrap CSS -->
+    <title>Alfino Syairazi F. — Portfolio</title>
+    <meta name="description" content="Portfolio pribadi Alfino Syairazi F., siswa SMKN 5 Malang jurusan Pengembangan Perangkat Lunak dan Gim.">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- My CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg bg-secondary shadow-sm" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-glass" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#">アルフィノ</a>
+            <a class="navbar-brand" href="#home">アルフィノ<span>.</span></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,151 +30,950 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <span class="nav-glass" id="navGlass" aria-hidden="true"></span>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" href="#home" data-i18n="nav.home">Home</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#About">About</a>
+                        <a class="nav-link" href="#profile" data-i18n="nav.profile">Profil</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#Projects">Project</a>
+                        <a class="nav-link" href="#about" data-i18n="nav.about">Tentang</a>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#Contact">Contact</a>
+                        <a class="nav-link" href="#projects" data-i18n="nav.projects">Karya</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact" data-i18n="nav.contact">Kontak</a>
+                    </li>
+                    <li class="nav-item dropdown ms-lg-2">
+                        <button class="nav-link lang-switch dropdown-toggle" type="button" id="langDropdown"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-globe2"></i>
+                            <span id="currentLang">ID</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark" aria-labelledby="langDropdown">
+                            <li><button class="dropdown-item lang-option" type="button" data-lang="id">Indonesia (ID)</button></li>
+                            <li><button class="dropdown-item lang-option" type="button" data-lang="en">English (EN)</button></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- Akhir Navbar -->
 
-
-    <!-- Jumbotron -->
-   <section class="jumbotron text-center">
-    <img src="img/al4.jpeg" alt="Alfino Syairazi F." width="200" class="rounded-circle img-thumbnail"/>
-    <h1 class="display-4">Alfino Syairazi F.</h1>
-    <p class="lead">Siswa SMKN 5 MALANG</p>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity="1" d="M0,96L40,117.3C80,139,160,181,240,170.7C320,160,400,96,480,58.7C560,21,640,11,720,37.3C800,64,880,128,960,133.3C1040,139,1120,85,1200,64C1280,43,1360,53,1400,58.7L1440,64L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
-   </section>
-    <!-- Akhir Jumbotron -->    
-
-    <!-- About -->
-     <section id="About">
+    <header class="hero" id="home">
         <div class="container">
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h2>About me</h2>
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <span class="hero-badge"><span class="dot"></span> <span data-i18n="hero.badge">Terbuka untuk kolaborasi</span></span>
+                    <h1 class="hero-title"><span data-i18n="hero.greeting" id="heroGreeting">Halo, saya</span> <span class="text-gradient" id="heroName">Alfino Syairazi F.</span></h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">
+                        Siswa SMKN 5 Malang jurusan Pengembangan Perangkat Lunak dan Gim (PPLG).
+                        Suka membangun website, mempelajari teknologi baru, dan mengubah ide menjadi karya digital.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap justify-content-center justify-content-lg-start">
+                        <a href="#projects" class="btn btn-gradient">
+                            <span data-i18n="hero.ctaProjects">Lihat Project</span> <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
+                        <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaContact">Hubungi Saya</a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://www.instagram.com/al_s4210?igsh=MWdwcThmY2djajc5aw==" target="_blank" rel="noopener" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://github.com/alsyairazi4210-web" target="_blank" rel="noopener" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="mailto:alsyairazi@gmail.com" aria-label="Email">
+                            <i class="bi bi-envelope"></i>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="row justify-content-center fs-5 text-center">
-                <div class="col-md-4 mb-3">
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Deserunt sapiente repellat ratione, rem possimus nemo ipsum quam quibusdam est voluptatibus.</p>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque exercitationem, eos non blanditiis doloribus voluptas voluptatibus vel tempora? Nobis velit corporis quis nesciunt illum laborum.</p>
+                <div class="col-lg-5">
+                    <div class="portrait-wrap">
+                        <div class="lanyard-stage" aria-label="Lanyard interaktif. Tarik kartu atau talinya untuk mengayunkan." >
+                            <svg class="lanyard-rope" viewBox="0 0 320 900" preserveAspectRatio="none" aria-hidden="true">
+                                <defs>
+                                    <pattern id="lanyardWeave" width="10" height="10" patternUnits="userSpaceOnUse">
+                                        <rect width="10" height="10" fill="#101214"></rect>
+                                        <path d="M0 1H10 M0 6H10" stroke="#24292b" stroke-width=".7" opacity=".75"></path>
+                                        <path d="M2 0V10 M7 0V10" stroke="#080a0b" stroke-width=".6" opacity=".8"></path>
+                                        <path d="M4 0V10" stroke="#343a3b" stroke-width=".45" opacity=".45"></path>
+                                    </pattern>
+                                </defs>
+                                <path class="lanyard-rope-shadow" d="M160 0 Q160 55 160 118"></path>
+                                <path class="lanyard-rope-line" d="M160 0 Q160 55 160 118"></path>
+                                <path class="lanyard-rope-hit" d="M160 0 Q160 55 160 118"></path>
+                                <path id="lanyardTextGuide" d="M160 0 Q160 55 160 118" fill="none"></path>
+                                <text class="lanyard-rope-lettering" aria-hidden="true">
+                                    <textPath href="#lanyardTextGuide" startOffset="8%">アルフィノ  •  アルフィノ  •  アルフィノ  •  アルフィノ  •  アルフィノ  •  アルフィノ  •</textPath>
+                                </text>
+                            </svg>
+                            <div class="lanyard-swing" tabindex="0" role="button" aria-label="Tarik kartu identitas untuk mengayunkannya">
+                                <div class="lanyard-clip" aria-hidden="true"><span></span></div>
+                                <div class="lanyard-card">
+                                    <div class="lanyard-hole" aria-hidden="true"></div>
+                                    <img src="img/all1.jpeg" alt="Foto Alfino Syairazi F.">
+                                    <div class="lanyard-meta">
+                                        <strong>Alfino Syairazi F.</strong>
+                                        <span>Web Developer · XI RPL</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="lanyard-hint" aria-hidden="true">DRAG TO SWING</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e0e0e0" fill-opacity="1" d="M0,192L80,186.7C160,181,320,171,480,181.3C640,192,800,224,960,234.7C1120,245,1280,235,1360,229.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path></svg>
-     </section>
-     <!-- akhir about -->
+        <a href="#profile" class="scroll-hint" aria-label="Scroll ke bawah">
+            <i class="bi bi-mouse"></i>
+        </a>
+    </header>
 
-     <!-- project -->
-     <section id="Projects">
-    <div class="container">
-        <div class="row text-center mb-4">
-            <div class="col">
-                <h2>My Project</h2>
+    <div class="skill-marquee" aria-hidden="true">
+        <div class="skill-marquee-track">
+            <div class="marquee-group">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>Git</span>
             </div>
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/book1.jpg" class="card-img-top" alt="Book 1">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                    </div>
-                </div>
+            <div class="marquee-group">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>PHP</span>
+                <span>MySQL</span>
+                <span>Flutter</span>
+                <span>Dart</span>
+                <span>Git</span>
             </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/BOOK3.webp" class="card-img-top" alt="Book 2">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-4">
-                <div class="card">
-                    <img src="img/book2.jpg" class="card-img-top" alt="Book 3">
-                    <div class="card-body">
-                        <p class="card-text">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
-</section>
-      <!-- akhir project -->
 
-      <!-- contact -->
-       <section id="Contact">
+    <section id="profile" class="section profile-section">
         <div class="container">
-            <div class="row text-center mb-4">
-                <div class="col">
-                    <h2>Contact Me</h2>
-                </div>
+            <div class="section-head text-center reveal">
+                <span class="section-kicker" data-i18n="profile.kicker">Profil</span>
+                <h2 class="section-title"><span data-i18n="profile.title1">Profil</span> <span class="text-gradient" data-i18n="profile.title2">Singkat</span></h2>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                        <form>
-  <div class="mb-3">
-    <label for="name" class="form-label">Nama Lengkap</label>
-    <input type="teks" class="form-control" id="name" aria-describedby="name">
-
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" class="form-control" id="email" aria-describedby="email">
-  </div>
-  <div class="mb-3">
-  <label for="pesan" class="form-label">pesan</label>
-  <textarea class="form-control" id="pesan" rows="3"></textarea>
-</div>
-  <button type="submit" class="btn btn-primary">kirim</button>
-</form>
+            <div class="profile-card reveal">
+                <div class="profile-photo">
+                    <img src="img/al9.jpeg" alt="Foto Alfino Syairazi F.">
+                    <span class="profile-status"><span class="dot"></span> <span data-i18n="profile.status">Terbuka untuk kolaborasi</span></span>
+                </div>
+                <div class="profile-info">
+                    <h3 class="profile-name">Alfino Syairazi F.</h3>
+                    <p class="profile-role" data-i18n="profile.role">Pelajar &amp; Web Developer</p>
+                    <div class="profile-facts">
+                        <div class="profile-fact">
+                            <small data-i18n="profile.schoolLabel">Sekolah</small>
+                            <span data-i18n="profile.schoolValue">SMKN 5 Malang</span>
+                        </div>
+                        <div class="profile-fact">
+                            <small data-i18n="profile.majorLabel">Jurusan</small>
+                            <span data-i18n="profile.majorValue">Pengembangan Perangkat Lunak dan Gim (PPLG)</span>
+                        </div>
+                        <div class="profile-fact">
+                            <small data-i18n="profile.locationLabel">Lokasi</small>
+                            <span data-i18n="profile.locationValue">Malang, Indonesia</span>
+                        </div>
+                        <div class="profile-fact">
+                            <small data-i18n="profile.focusLabel">Fokus</small>
+                            <span data-i18n="profile.focusValue">Web &amp; App Development</span>
+                        </div>
+                        <div class="profile-fact">
+                            <small data-i18n="profile.languageLabel">Bahasa</small>
+                            <span data-i18n="profile.languageValue">Indonesia &amp; Jepang (dasar)</span>
+                        </div>
+                        <div class="profile-fact">
+                            <small data-i18n="profile.statusLabel">Status</small>
+                            <span data-i18n="profile.statusValue">Pelajar aktif</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-gradient profile-cta">
+                        <span data-i18n="profile.cta">Hubungi Saya</span> <i class="bi bi-arrow-right ms-1"></i>
+                    </a>
                 </div>
             </div>
         </div>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e0e0e0" fill-opacity="1" d="M0,128L60,144C120,160,240,192,360,176C480,160,600,96,720,96C840,96,960,160,1080,170.7C1200,181,1320,139,1380,117.3L1440,96L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
-       <!-- last contact -->
+    </section>
 
-       <!-- footer -->
-        <footer class="bg-secondary text-white text-center p-3">
-            <p>created with love by <a href="https://www.instagram.com/al_s4210?igsh=MWdwcThmY2djajc5aw==" class="text-white">Alfino Syairazi F.</a></p>
-        </footer>
-        <!-- akhir footer -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <span class="section-kicker" data-i18n="about.kicker">Tentang</span>
+                <h2 class="section-title"><span data-i18n="about.title1">Tentang</span> <span class="text-gradient" data-i18n="about.title2">Saya</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5 reveal">
+                    <div class="glass-card">
+                        <div class="icon-box"><i class="bi bi-person-badge"></i></div>
+                        <h3 class="h4 fw-bold mb-3" data-i18n="about.cardTitle">Pelajar &amp; Developer Web</h3>
+                        <p class="text-muted mb-3" data-i18n="about.p1">
+                            Saya Alfino Syairazi F., siswa SMKN 5 Malang yang sedang mendalami
+                            pengembangan web dan aplikasi. Saya senang belajar hal baru, mencoba
+                            teknologi modern, dan membuat antarmuka yang rapi serta nyaman dipakai.
+                        </p>
+                        <p class="text-muted mb-0" data-i18n="about.p2">
+                            Fokus saya saat ini adalah HTML, CSS, Bootstrap, PHP, MySQL, dan JavaScript.
+                            Ke depannya saya ingin menjadi Full Stack Developer.
+                        </p>
+                        <div class="skill-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>Bootstrap</span>
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-4 about-grid">
+                        <div class="col-md-6 reveal">
+                            <div class="mini-card">
+                                <div class="icon-box"><i class="bi bi-code-slash"></i></div>
+                                <h3 data-i18n="about.skillsTitle">Keahlian</h3>
+                                <p data-i18n="about.skillsDesc">Membangun website responsif dengan HTML, CSS, Bootstrap, PHP, MySQL, dan JavaScript.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="mini-card">
+                                <div class="icon-box"><i class="bi bi-award"></i></div>
+                                <h3 data-i18n="about.certTitle">Sertifikat</h3>
+                                <p data-i18n="about.certDesc">Lulus Japanese Course Level Shokyu I dengan predikat Very Good (B+).</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="mini-card">
+                                <div class="icon-box"><i class="bi bi-bullseye"></i></div>
+                                <h3 data-i18n="about.goalTitle">Tujuan Karier</h3>
+                                <p data-i18n="about.goalDesc">Menjadi Full Stack Developer dan terus mempelajari teknologi baru.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 reveal">
+                            <div class="mini-card">
+                                <div class="icon-box"><i class="bi bi-translate"></i></div>
+                                <h3 data-i18n="about.langTitle">Bahasa</h3>
+                                <p data-i18n="about.langDesc">Bahasa Indonesia (native) dan Bahasa Jepang (dasar, Shokyu I).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <section id="projects" class="section section-alt">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <span class="section-kicker" data-i18n="projects.kicker">Portofolio</span>
+                <h2 class="section-title"><span data-i18n="projects.title1">Karya &</span> <span class="text-gradient" data-i18n="projects.title2">Pencapaian</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 reveal">
+                    <article class="project-card">
+                        <div class="project-thumb montage">
+                            <img src="img/nodex-montage.png" alt="Tampilan aplikasi Nodex Android versi dark">
+                        </div>
+                        <div class="project-body">
+                            <h3 data-i18n="projects.p1title">Nodex</h3>
+                            <p data-i18n="projects.p1desc">Aplikasi document editor modern berbasis Flutter untuk membuat, mengedit, dan mengelola dokumen di mobile.</p>
+                            <div class="project-tags">
+                                <span>Flutter</span>
+                                <span>Dart</span>
+                                <span>Android</span>
+                            </div>
+                            <a class="project-link" href="https://mynodex-web.vercel.app/" target="_blank" rel="noopener">
+                                <span data-i18n="projects.p1link">Kunjungi Nodex</span> <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-6 reveal">
+                    <article class="project-card">
+                        <div class="project-thumb cert">
+                            <img src="img/certifikate.jpeg" alt="Sertifikat Shokyu I">
+                        </div>
+                        <div class="project-body">
+                            <h3 data-i18n="projects.p2title">Kursus &amp; Sertifikat Bahasa Jepang</h3>
+                            <p data-i18n="projects.p2desc">Menyelesaikan pelatihan bahasa Jepang Shokyu I dan meraih predikat Very Good (B+).</p>
+                            <div class="project-tags">
+                                <span>Japanese</span>
+                                <span>Shokyu I</span>
+                                <span>Certificate</span>
+                            </div>
+                            <a class="project-link" href="img/certifikate.jpeg" target="_blank" rel="noopener">
+                                <span data-i18n="projects.p2link">Lihat Sertifikat</span> <i class="bi bi-arrow-up-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bootstrap JS -->
+    <section id="contact" class="section">
+        <div class="container">
+            <div class="section-head text-center reveal">
+                <span class="section-kicker" data-i18n="contact.kicker">Kontak</span>
+                <h2 class="section-title"><span data-i18n="contact.title1">Hubungi</span> <span class="text-gradient" data-i18n="contact.title2">Saya</span></h2>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-5 reveal">
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <i class="bi bi-envelope"></i>
+                            <div>
+                                <small data-i18n="contact.emailLabel">Email</small>
+                                <a href="mailto:alsyairazi@gmail.com">alsyairazi@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-instagram"></i>
+                            <div>
+                                <small data-i18n="contact.instagramLabel">Instagram</small>
+                                <a href="https://www.instagram.com/al_s4210?igsh=MWdwcThmY2djajc5aw==" target="_blank" rel="noopener">@al_s4210</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-tiktok"></i>
+                            <div>
+                                <small data-i18n="contact.tiktokLabel">TikTok</small>
+                                <a href="https://www.tiktok.com/@alfino4210" target="_blank" rel="noopener">@alfino4210</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-github"></i>
+                            <div>
+                                <small data-i18n="contact.githubLabel">GitHub</small>
+                                <a href="https://github.com/alsyairazi4210-web" target="_blank" rel="noopener">alsyairazi4210-web</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <div>
+                                <small data-i18n="contact.locationLabel">Lokasi</small>
+                                <span data-i18n="contact.locationValue">Malang, Indonesia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 reveal">
+                    <div class="glass-card">
+                        <form class="contact-form" id="contactForm">
+                            <div class="mb-3">
+                                <label for="name" class="form-label" data-i18n="contact.nameLabel">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" data-i18n-placeholder="contact.namePlaceholder" placeholder="Nama kamu" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label" data-i18n="contact.emailFieldLabel">Email</label>
+                                <input type="email" class="form-control" id="email" data-i18n-placeholder="contact.emailPlaceholder" placeholder="nama@email.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pesan" class="form-label" data-i18n="contact.messageLabel">Pesan</label>
+                                <textarea class="form-control" id="pesan" rows="4" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Tulis pesanmu..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-gradient w-100">
+                                <span data-i18n="contact.submit">Kirim Pesan</span> <i class="bi bi-send ms-1"></i>
+                            </button>
+                            <div class="form-alert" id="formAlert" data-i18n="contact.success">
+                                Terima kasih! Pesanmu sudah dicatat. (Form demo, sambungkan ke backend/Formspree untuk kirim sungguhan.)
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-col">
+                    <a class="footer-brand" href="#home">アルフィノ<span>.</span></a>
+                    <p data-i18n="footer.tagline">Portfolio pribadi Alfino Syairazi F. — pelajar, developer web, dan pembelajar seumur hidup.</p>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.linksTitle">Navigasi</h4>
+                    <a href="#home" data-i18n="nav.home">Home</a>
+                    <a href="#profile" data-i18n="nav.profile">Profil</a>
+                    <a href="#about" data-i18n="nav.about">Tentang</a>
+                    <a href="#projects" data-i18n="nav.projects">Karya</a>
+                    <a href="#contact" data-i18n="nav.contact">Kontak</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.socialTitle">Sosial</h4>
+                    <a href="https://www.instagram.com/al_s4210?igsh=MWdwcThmY2djajc5aw==" target="_blank" rel="noopener"><i class="bi bi-instagram"></i> Instagram</a>
+                    <a href="https://www.tiktok.com/@alfino4210" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i> TikTok</a>
+                    <a href="https://github.com/alsyairazi4210-web" target="_blank" rel="noopener"><i class="bi bi-github"></i> GitHub</a>
+                    <a href="mailto:alsyairazi@gmail.com"><i class="bi bi-envelope"></i> Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>
+                    <span data-i18n="footer.made">Dibuat dengan</span>
+                    <i class="bi bi-heart-fill"></i>
+                    <span data-i18n="footer.by">oleh</span>
+                    <a href="#home">Alfino Syairazi F.</a>
+                </p>
+                <p>© <span id="footerYear">2026</span> Alfino Syairazi F.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const translations = {
+            id: {
+                'nav.home': 'Home',
+                'nav.profile': 'Profil',
+                'nav.about': 'Tentang',
+                'nav.projects': 'Karya',
+                'nav.contact': 'Kontak',
+                'hero.badge': 'Terbuka untuk kolaborasi',
+                'hero.greeting': 'Halo, saya',
+                'hero.subtitle': 'Siswa SMKN 5 Malang jurusan Pengembangan Perangkat Lunak dan Gim (PPLG). Suka membangun website, mempelajari teknologi baru, dan mengubah ide menjadi karya digital.',
+                'hero.ctaProjects': 'Lihat Project',
+                'hero.ctaContact': 'Hubungi Saya',
+                'about.kicker': 'Tentang',
+                'about.title1': 'Tentang',
+                'about.title2': 'Saya',
+                'about.cardTitle': 'Pelajar & Developer Web',
+                'about.p1': 'Saya Alfino Syairazi F., siswa SMKN 5 Malang yang sedang mendalami pengembangan web dan aplikasi. Saya senang belajar hal baru, mencoba teknologi modern, dan membuat antarmuka yang rapi serta nyaman dipakai.',
+                'about.p2': 'Fokus saya saat ini adalah HTML, CSS, Bootstrap, PHP, MySQL, dan JavaScript. Ke depannya saya ingin menjadi Full Stack Developer.',
+                'about.skillsTitle': 'Keahlian',
+                'about.skillsDesc': 'Membangun website responsif dengan HTML, CSS, Bootstrap, PHP, MySQL, dan JavaScript.',
+                'about.certTitle': 'Sertifikat',
+                'about.certDesc': 'Lulus Japanese Course Level Shokyu I dengan predikat Very Good (B+).',
+                'about.goalTitle': 'Tujuan Karier',
+                'about.goalDesc': 'Menjadi Full Stack Developer dan terus mempelajari teknologi baru.',
+                'about.langTitle': 'Bahasa',
+                'about.langDesc': 'Bahasa Indonesia (native) dan Bahasa Jepang (dasar, Shokyu I).',
+                'profile.kicker': 'Profil',
+                'profile.title1': 'Profil',
+                'profile.title2': 'Singkat',
+                'profile.status': 'Terbuka untuk kolaborasi',
+                'profile.role': 'Pelajar & Web Developer',
+                'profile.schoolLabel': 'Sekolah',
+                'profile.schoolValue': 'SMKN 5 Malang',
+                'profile.majorLabel': 'Jurusan',
+                'profile.majorValue': 'Pengembangan Perangkat Lunak dan Gim (PPLG)',
+                'profile.locationLabel': 'Lokasi',
+                'profile.locationValue': 'Malang, Indonesia',
+                'profile.focusLabel': 'Fokus',
+                'profile.focusValue': 'Web & App Development',
+                'profile.languageLabel': 'Bahasa',
+                'profile.languageValue': 'Indonesia & Jepang (dasar)',
+                'profile.statusLabel': 'Status',
+                'profile.statusValue': 'Pelajar aktif',
+                'profile.cta': 'Hubungi Saya',
+                'projects.kicker': 'Portofolio',
+                'projects.title1': 'Karya &',
+                'projects.title2': 'Pencapaian',
+                'projects.p1title': 'Nodex',
+                'projects.p1desc': 'Aplikasi document editor modern berbasis Flutter untuk membuat, mengedit, dan mengelola dokumen di mobile.',
+                'projects.p1link': 'Kunjungi Nodex',
+                'projects.p2title': 'Kursus & Sertifikat Bahasa Jepang',
+                'projects.p2desc': 'Menyelesaikan pelatihan bahasa Jepang Shokyu I dan meraih predikat Very Good (B+).',
+                'projects.p2link': 'Lihat Sertifikat',
+                'contact.kicker': 'Kontak',
+                'contact.title1': 'Hubungi',
+                'contact.title2': 'Saya',
+                'contact.emailLabel': 'Email',
+                'contact.instagramLabel': 'Instagram',
+                'contact.tiktokLabel': 'TikTok',
+                'contact.githubLabel': 'GitHub',
+                'contact.locationLabel': 'Lokasi',
+                'contact.locationValue': 'Malang, Indonesia',
+                'contact.nameLabel': 'Nama Lengkap',
+                'contact.namePlaceholder': 'Nama kamu',
+                'contact.emailFieldLabel': 'Email',
+                'contact.emailPlaceholder': 'nama@email.com',
+                'contact.messageLabel': 'Pesan',
+                'contact.messagePlaceholder': 'Tulis pesanmu...',
+                'contact.submit': 'Kirim Pesan',
+                'contact.success': 'Terima kasih! Pesanmu sudah dicatat. (Form demo, sambungkan ke backend/Formspree untuk kirim sungguhan.)',
+                'footer.made': 'Dibuat dengan',
+                'footer.by': 'oleh',
+                'footer.tagline': 'Portfolio pribadi Alfino Syairazi F. — pelajar, developer web, dan pembelajar seumur hidup.',
+                'footer.linksTitle': 'Navigasi',
+                'footer.socialTitle': 'Sosial'
+            },
+            en: {
+                'nav.home': 'Home',
+                'nav.profile': 'Profile',
+                'nav.about': 'About',
+                'nav.projects': 'Works',
+                'nav.contact': 'Contact',
+                'hero.badge': 'Open to collaboration',
+                'hero.greeting': "Hi, I'm",
+                'hero.subtitle': 'A student at SMKN 5 Malang majoring in Software and Game Development (PPLG). I enjoy building websites, learning new technologies, and turning ideas into digital work.',
+                'hero.ctaProjects': 'View Projects',
+                'hero.ctaContact': 'Contact Me',
+                'about.kicker': 'About',
+                'about.title1': 'About',
+                'about.title2': 'Me',
+                'about.cardTitle': 'Web Learner & Developer',
+                'about.p1': 'I am Alfino Syairazi F., a student at SMKN 5 Malang exploring web and application development. I enjoy learning new things, trying modern technologies, and building clean interfaces that are comfortable to use.',
+                'about.p2': 'My current focus is HTML, CSS, Bootstrap, PHP, MySQL, and JavaScript. In the future I want to become a Full Stack Developer.',
+                'about.skillsTitle': 'Skills',
+                'about.skillsDesc': 'Building responsive websites with HTML, CSS, Bootstrap, PHP, MySQL, and JavaScript.',
+                'about.certTitle': 'Certificate',
+                'about.certDesc': 'Passed the Japanese Course Level Shokyu I with a Very Good (B+) grade.',
+                'about.goalTitle': 'Career Goal',
+                'about.goalDesc': 'Become a Full Stack Developer and keep learning new technologies.',
+                'about.langTitle': 'Languages',
+                'about.langDesc': 'Indonesian (native) and Japanese (basic, Shokyu I).',
+                'profile.kicker': 'Profile',
+                'profile.title1': 'Short',
+                'profile.title2': 'Profile',
+                'profile.status': 'Open to collaboration',
+                'profile.role': 'Student & Web Developer',
+                'profile.schoolLabel': 'School',
+                'profile.schoolValue': 'SMKN 5 Malang',
+                'profile.majorLabel': 'Major',
+                'profile.majorValue': 'Software & Game Development (PPLG)',
+                'profile.locationLabel': 'Location',
+                'profile.locationValue': 'Malang, Indonesia',
+                'profile.focusLabel': 'Focus',
+                'profile.focusValue': 'Web & App Development',
+                'profile.languageLabel': 'Languages',
+                'profile.languageValue': 'Indonesian & Japanese (basic)',
+                'profile.statusLabel': 'Status',
+                'profile.statusValue': 'Active student',
+                'profile.cta': 'Contact Me',
+                'projects.kicker': 'Portfolio',
+                'projects.title1': 'Works &',
+                'projects.title2': 'Achievements',
+                'projects.p1title': 'Nodex',
+                'projects.p1desc': 'A modern Flutter-based document editor to create, edit, and manage documents on mobile.',
+                'projects.p1link': 'Visit Nodex',
+                'projects.p2title': 'Japanese Course & Certificate',
+                'projects.p2desc': 'Completed Japanese language training Shokyu I and earned a Very Good (B+) grade.',
+                'projects.p2link': 'View Certificate',
+                'contact.kicker': 'Contact',
+                'contact.title1': 'Contact',
+                'contact.title2': 'Me',
+                'contact.emailLabel': 'Email',
+                'contact.instagramLabel': 'Instagram',
+                'contact.tiktokLabel': 'TikTok',
+                'contact.githubLabel': 'GitHub',
+                'contact.locationLabel': 'Location',
+                'contact.locationValue': 'Malang, Indonesia',
+                'contact.nameLabel': 'Full Name',
+                'contact.namePlaceholder': 'Your name',
+                'contact.emailFieldLabel': 'Email',
+                'contact.emailPlaceholder': 'name@email.com',
+                'contact.messageLabel': 'Message',
+                'contact.messagePlaceholder': 'Write your message...',
+                'contact.submit': 'Send Message',
+                'contact.success': 'Thank you! Your message has been recorded. (Demo form, connect it to a backend/Formspree to send for real.)',
+                'footer.made': 'Made with',
+                'footer.by': 'by',
+                'footer.tagline': 'Personal portfolio of Alfino Syairazi F. — student, web developer, and lifelong learner.',
+                'footer.linksTitle': 'Navigation',
+                'footer.socialTitle': 'Social'
+            }
+        };
 
+        const langOptions = document.querySelectorAll('.lang-option');
+        const currentLangEl = document.getElementById('currentLang');
+
+        function applyLanguage(lang) {
+            const dict = translations[lang] || translations.id;
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach((el) => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    el.textContent = dict[key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key] !== undefined) {
+                    el.setAttribute('placeholder', dict[key]);
+                }
+            });
+
+            if (currentLangEl) {
+                currentLangEl.textContent = lang.toUpperCase();
+            }
+
+            langOptions.forEach((btn) => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            localStorage.setItem('portfolio-lang', lang);
+
+            splitHeroTitle();
+        }
+
+        function splitHeroTitle() {
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+            const greeting = document.getElementById('heroGreeting');
+            const name = document.getElementById('heroName');
+            if (!greeting || !name) return;
+
+            let index = 0;
+
+            [greeting, name].forEach((el) => {
+                const words = el.textContent.trim().split(/\s+/);
+                el.textContent = '';
+
+                words.forEach((word, wordIndex) => {
+                    const wordEl = document.createElement('span');
+                    wordEl.className = 'word';
+
+                    [...word].forEach((letter) => {
+                        const charEl = document.createElement('span');
+                        charEl.className = 'char';
+                        charEl.style.setProperty('--ci', index++);
+                        charEl.textContent = letter;
+                        wordEl.appendChild(charEl);
+                    });
+
+                    el.appendChild(wordEl);
+                    if (wordIndex < words.length - 1) {
+                        el.appendChild(document.createTextNode(' '));
+                    }
+                });
+            });
+        }
+
+        langOptions.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                applyLanguage(btn.dataset.lang);
+                requestAnimationFrame(resetGlass);
+                const menu = document.getElementById('navbarNav');
+                if (menu.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+                }
+            });
+        });
+
+        applyLanguage(localStorage.getItem('portfolio-lang') || 'id');
+
+        const particleLayer = document.getElementById('bgParticles');
+        if (particleLayer) {
+            for (let i = 0; i < 18; i++) {
+                const particle = document.createElement('span');
+                const size = 2 + Math.random() * 4;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.animationDuration = 12 + Math.random() * 14 + 's';
+                particle.style.animationDelay = Math.random() * 14 + 's';
+                particle.style.setProperty('--drift', (Math.random() * 140 - 70) + 'px');
+                particleLayer.appendChild(particle);
+            }
+        }
+
+        const navGlass = document.getElementById('navGlass');
+        const glassNav = document.querySelector('.navbar-glass .navbar-nav');
+        const glassLinks = document.querySelectorAll('.navbar-glass .nav-link');
+        let navHovering = false;
+
+        function moveGlass(target) {
+            if (!navGlass || !glassNav || !target) return;
+            if (window.innerWidth < 992) {
+                navGlass.style.opacity = '0';
+                return;
+            }
+            const navRect = glassNav.getBoundingClientRect();
+            const rect = target.getBoundingClientRect();
+            navGlass.style.left = rect.left - navRect.left + 'px';
+            navGlass.style.width = rect.width + 'px';
+            navGlass.style.height = rect.height + 'px';
+            navGlass.style.opacity = '1';
+        }
+
+        function resetGlass() {
+            moveGlass(document.querySelector('.navbar-glass .nav-link.active'));
+        }
+
+        glassLinks.forEach((link) => {
+            link.addEventListener('mouseenter', () => {
+                navHovering = true;
+                moveGlass(link);
+            });
+            link.addEventListener('focus', () => {
+                navHovering = true;
+                moveGlass(link);
+            });
+            link.addEventListener('blur', () => {
+                navHovering = false;
+                resetGlass();
+            });
+        });
+
+        if (glassNav) {
+            glassNav.addEventListener('mouseleave', () => {
+                navHovering = false;
+                resetGlass();
+            });
+        }
+
+        window.addEventListener('resize', resetGlass);
+        window.addEventListener('load', resetGlass);
+        resetGlass();
+
+        const nav = document.getElementById('mainNav');
+        const backToTop = document.getElementById('backToTop');
+        const scrollProgress = document.getElementById('scrollProgress');
+        const sections = document.querySelectorAll('section[id], header[id]');
+        const navLinks = document.querySelectorAll('.navbar-glass .nav-link');
+        const reveals = document.querySelectorAll('.reveal');
+
+        function onScroll() {
+            nav.classList.toggle('scrolled', window.scrollY > 40);
+            backToTop.classList.toggle('show', window.scrollY > 500);
+
+            if (scrollProgress) {
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+                scrollProgress.style.width = progress + '%';
+            }
+
+            let current = 'home';
+            sections.forEach((section) => {
+                if (window.scrollY >= section.offsetTop - 140) {
+                    current = section.id;
+                }
+            });
+
+            navLinks.forEach((link) => {
+                link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+            });
+
+            if (!navHovering) {
+                resetGlass();
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const heroAvatar = document.querySelector('.portrait-wrap');
+        let scrollTicking = false;
+
+        function updateScrollEffects() {
+            const vh = window.innerHeight;
+
+            reveals.forEach((el) => {
+                const rect = el.getBoundingClientRect();
+                if (rect.bottom < -160 || rect.top > vh + 160) return;
+                const start = vh * 0.92;
+                const end = vh * 0.42;
+                let progress = (start - rect.top) / (start - end);
+                progress = Math.max(0, Math.min(1, progress));
+                const eased = progress * progress * (3 - 2 * progress);
+                el.style.opacity = eased.toFixed(3);
+                el.style.transform = 'translateY(' + ((1 - eased) * 40).toFixed(1) + 'px)';
+            });
+
+            if (heroAvatar) {
+                const shift = Math.min(window.scrollY * 0.06, 40);
+                heroAvatar.style.transform = 'translateY(' + shift.toFixed(1) + 'px)';
+            }
+
+            scrollTicking = false;
+        }
+
+        function requestScrollEffects() {
+            if (!scrollTicking) {
+                scrollTicking = true;
+                requestAnimationFrame(updateScrollEffects);
+            }
+        }
+
+        if (reduceMotion) {
+            reveals.forEach((el) => {
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
+            if (heroAvatar) {
+                heroAvatar.style.transform = 'none';
+            }
+        } else {
+            window.addEventListener('scroll', requestScrollEffects, { passive: true });
+            window.addEventListener('resize', requestScrollEffects);
+            updateScrollEffects();
+        }
+
+        document.querySelectorAll('.navbar-glass .nav-link:not(.lang-switch), .navbar-brand').forEach((link) => {
+            link.addEventListener('click', () => {
+                const menu = document.getElementById('navbarNav');
+                if (menu.classList.contains('show')) {
+                    bootstrap.Collapse.getOrCreateInstance(menu).hide();
+                }
+            });
+        });
+
+        if (window.matchMedia('(hover: hover)').matches) {
+            document.querySelectorAll('.glass-card, .project-card, .profile-card').forEach((card) => {
+                card.addEventListener('pointermove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    card.style.setProperty('--mx', (event.clientX - rect.left) + 'px');
+                    card.style.setProperty('--my', (event.clientY - rect.top) + 'px');
+                });
+            });
+        }
+
+        // Interactive, pendulum-like lanyard (mouse + touch + pen).
+        (() => {
+            const stage = document.querySelector('.lanyard-stage');
+            const swing = stage?.querySelector('.lanyard-swing');
+            const svg = stage?.querySelector('.lanyard-rope');
+            const rope = stage?.querySelector('.lanyard-rope-line');
+            const ropeShadow = stage?.querySelector('.lanyard-rope-shadow');
+            const ropeHit = stage?.querySelector('.lanyard-rope-hit');
+            const ropeTextGuide = stage?.querySelector('#lanyardTextGuide');
+            if (!stage || !swing || !svg || !rope || !ropeShadow || !ropeHit || !ropeTextGuide) return;
+
+            const state = { x: 0, y: 0, vx: 0, vy: 0, targetX: 0, targetY: 0, dragging: false, pointerId: null, lastX: 0, lastY: 0, lastTime: 0 };
+            const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            function paint() {
+                const width = stage.clientWidth;
+                const anchorX = width / 2;
+                // Extend the strap from the document's top edge, even across the navbar.
+                const stageDocumentTop = stage.getBoundingClientRect().top + window.scrollY;
+                const ropeHeight = Math.max(900, stageDocumentTop + 160);
+                svg.style.top = `${-stageDocumentTop}px`;
+                svg.style.height = `${ropeHeight}px`;
+                svg.setAttribute('viewBox', `0 0 320 ${ropeHeight}`);
+
+                const endX = anchorX + state.x;
+                const endY = stageDocumentTop + 118 + state.y;
+                const controlX = anchorX + state.x * 0.48;
+                const controlY = Math.max(30, endY * 0.52);
+                const d = `M ${anchorX} 0 Q ${controlX} ${controlY} ${endX} ${endY}`;
+                [rope, ropeShadow, ropeHit, ropeTextGuide].forEach((path) => path.setAttribute('d', d));
+                const angle = clamp(Math.atan2(state.x, 180 + state.y) * 180 / Math.PI, -38, 38);
+                swing.style.transform = `translate3d(calc(-50% + ${state.x}px), ${state.y}px, 0) rotate(${angle}deg)`;
+                swing.style.setProperty('--lanyard-angle', `${angle}deg`);
+            }
+
+            function pointFromEvent(event) {
+                const rect = stage.getBoundingClientRect();
+                return { x: event.clientX - rect.left - rect.width / 2, y: event.clientY - rect.top - 118 };
+            }
+
+            function startDrag(event) {
+                if (event.button !== undefined && event.button !== 0) return;
+                state.dragging = true;
+                state.pointerId = event.pointerId;
+                state.vx = state.vy = 0;
+                state.lastX = event.clientX;
+                state.lastY = event.clientY;
+                state.lastTime = performance.now();
+                stage.classList.add('is-dragging');
+                stage.setPointerCapture?.(event.pointerId);
+                event.preventDefault();
+            }
+
+            function moveDrag(event) {
+                if (!state.dragging || event.pointerId !== state.pointerId) return;
+                const point = pointFromEvent(event);
+                state.targetX = clamp(point.x, -128, 128);
+                state.targetY = clamp(point.y, -22, 118);
+                const now = performance.now();
+                const dt = Math.max(8, now - state.lastTime);
+                state.vx = (event.clientX - state.lastX) / dt * 16;
+                state.vy = (event.clientY - state.lastY) / dt * 16;
+                state.x = state.targetX;
+                state.y = state.targetY;
+                state.lastX = event.clientX;
+                state.lastY = event.clientY;
+                state.lastTime = now;
+                paint();
+            }
+
+            function endDrag(event) {
+                if (!state.dragging || (event.pointerId !== undefined && event.pointerId !== state.pointerId)) return;
+                state.dragging = false;
+                state.pointerId = null;
+                stage.classList.remove('is-dragging');
+                // Preserve a little release momentum, then let gravity/damping settle it.
+                state.vx = clamp(state.vx, -18, 18) * 0.72;
+                state.vy = clamp(state.vy, -18, 18) * 0.48;
+            }
+
+            swing.addEventListener('pointerdown', startDrag);
+            ropeHit.addEventListener('pointerdown', startDrag);
+            window.addEventListener('pointermove', moveDrag, { passive: false });
+            window.addEventListener('pointerup', endDrag);
+            window.addEventListener('pointercancel', endDrag);
+
+            swing.addEventListener('keydown', (event) => {
+                if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+                    event.preventDefault();
+                    state.vx += event.key === 'ArrowLeft' ? -5 : 5;
+                }
+                if (event.key === 'Home') {
+                    event.preventDefault();
+                    state.x = state.y = state.vx = state.vy = 0;
+                    paint();
+                }
+            });
+
+            let previous = performance.now();
+            function animate(now) {
+                const dt = Math.min(2, (now - previous) / 16.67 || 1);
+                previous = now;
+                if (!state.dragging) {
+                    // Spring force plus damping gives the card a natural pendulum settle.
+                    state.vx += (-state.x * 0.018) * dt;
+                    state.vy += (-state.y * 0.024) * dt;
+                    state.vx *= Math.pow(reducedMotion ? 0.78 : 0.965, dt);
+                    state.vy *= Math.pow(reducedMotion ? 0.78 : 0.94, dt);
+                    state.x += state.vx * dt;
+                    state.y += state.vy * dt;
+                    if (Math.abs(state.x) < 0.08 && Math.abs(state.vx) < 0.08) state.x = state.vx = 0;
+                    if (Math.abs(state.y) < 0.08 && Math.abs(state.vy) < 0.08) state.y = state.vy = 0;
+                    paint();
+                }
+                requestAnimationFrame(animate);
+            }
+            paint();
+            requestAnimationFrame(animate);
+            window.addEventListener('resize', paint, { passive: true });
+        })();
+
+        const footerYear = document.getElementById('footerYear');
+        if (footerYear) {
+            footerYear.textContent = new Date().getFullYear();
+        }
+
+        const form = document.getElementById('contactForm');
+        const alertBox = document.getElementById('formAlert');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            alertBox.classList.add('show');
+            form.reset();
+            setTimeout(() => alertBox.classList.remove('show'), 5000);
+        });
+    </script>
 </body>
 </html>
