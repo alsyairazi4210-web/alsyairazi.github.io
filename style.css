@@ -1993,3 +1993,124 @@ html[data-theme="light"] footer {
         overflow-x: hidden;
     }
 }
+
+
+/* Mobile hero layout: show the interactive ID lanyard before the introduction. */
+@media (max-width: 991.98px) {
+    .hero {
+        min-height: auto;
+        display: block;
+        padding: 108px 0 58px;
+    }
+
+    .hero > .container {
+        width: 100%;
+        max-width: 100%;
+        padding-left: max(16px, env(safe-area-inset-left));
+        padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    .hero .row {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        --bs-gutter-x: 0;
+        --bs-gutter-y: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hero .row > .col-lg-5 {
+        order: 0;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .hero .row > .col-lg-7 {
+        order: 1;
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-top: 1.5rem;
+        text-align: center;
+    }
+
+    .portrait-wrap {
+        width: min(300px, 82vw);
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .lanyard-stage {
+        width: 100%;
+        min-height: 440px;
+        margin: 0 auto;
+    }
+
+    .lanyard-swing {
+        width: min(100%, 300px);
+        max-width: 300px;
+    }
+
+    .hero-badge {
+        margin-top: 0;
+    }
+
+    .hero-title {
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .hero-subtitle {
+        width: 100%;
+        max-width: 620px;
+        margin: 0 auto 1.5rem;
+        overflow-wrap: break-word;
+    }
+
+    .hero .d-flex {
+        justify-content: center;
+    }
+
+    .hero-social {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 48px;
+    }
+
+    .portrait-wrap {
+        width: min(280px, 78vw);
+    }
+
+    .lanyard-stage {
+        min-height: 420px;
+    }
+
+    .hero .row > .col-lg-7 {
+        margin-top: 1.1rem;
+    }
+
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.35rem);
+        line-height: 1.15;
+    }
+
+    .hero-subtitle {
+        font-size: 0.98rem;
+        line-height: 1.7;
+    }
+
+    .hero .btn-gradient,
+    .hero .btn-ghost {
+        width: 100%;
+        max-width: 360px;
+    }
+}
